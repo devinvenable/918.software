@@ -9,6 +9,9 @@ class TypingEffect {
 
     type() {
         return new Promise((resolve) => {
+            // Add typing class to start cursor animation
+            this.element.classList.add('typing');
+            
             const typeNextChar = () => {
                 if (this.currentChar < this.text.length) {
                     this.element.textContent = this.text.slice(0, this.currentChar + 1);
@@ -16,6 +19,9 @@ class TypingEffect {
                     setTimeout(typeNextChar, this.speed);
                 } else {
                     this.isComplete = true;
+                    // Remove typing class and add typing-complete class
+                    this.element.classList.remove('typing');
+                    this.element.classList.add('typing-complete');
                     resolve();
                 }
             };

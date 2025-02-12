@@ -1,263 +1,265 @@
-@keyframes changecolor{
-	0%   {
-		background-color: white;
-		border-color: white;
-	}
-	25%  {
-		background-color: #FFFF99;
-		border-color: #FFFF99;
-	}
-	50% {
-		background-color: #CCFF99;
-		border-color: #CCFF99;
-	}
-	75% {
-		background-color: #99CCFF;
-		border-color: #99CCFF;
-	}
-	100% {
-		background-color: white;
-		border-color: white;
-	}
+@keyframes changecolor {
+  0% {
+    background-color: white;
+    border-color: white;
+  }
+  25% {
+    background-color: #ffff99;
+    border-color: #ffff99;
+  }
+  50% {
+    background-color: #ccff99;
+    border-color: #ccff99;
+  }
+  75% {
+    background-color: #99ccff;
+    border-color: #99ccff;
+  }
+  100% {
+    background-color: white;
+    border-color: white;
+  }
 }
-@keyframes changecolor2{
-	0%   {
-		background-color: #FFFF99;
-		border-color: #FFFF99;
-	}
-	25%  {
-		background-color: #CCFF99;
-		border-color: #CCFF99;
-	}
-	50% {
-		background-color: #99CCFF;
-		border-color: #99CCFF;
-	}
-	75% {
-		background-color: white;
-		border-color: white;
-	}
-	100% {
-		background-color: #FFFF99;
-		border-color: #FFFF99;
-	}
+@keyframes changecolor2 {
+  0% {
+    background-color: #ffff99;
+    border-color: #ffff99;
+  }
+  25% {
+    background-color: #ccff99;
+    border-color: #ccff99;
+  }
+  50% {
+    background-color: #99ccff;
+    border-color: #99ccff;
+  }
+  75% {
+    background-color: white;
+    border-color: white;
+  }
+  100% {
+    background-color: #ffff99;
+    border-color: #ffff99;
+  }
 }
-@keyframes changecolor-text{
-	0%   {
-		color: white;
-	}
-	25%  {
-		color: #FFFF99;
-	}
-	50% {
-		color: #CCFF99;
-	}
-	75% {
-		color: #99CCFF;
-	}
-	100% {
-		color: white;
-	}
+@keyframes changecolor-text {
+  0% {
+    color: white;
+  }
+  25% {
+    color: #ffff99;
+  }
+  50% {
+    color: #ccff99;
+  }
+  75% {
+    color: #99ccff;
+  }
+  100% {
+    color: white;
+  }
 }
-.evolve{
-	animation-name: changecolor;
-	animation-duration: 30s;
-	animation-iteration-count: infinite;
-	animation-timing-function: ease-in-out;
+.evolve {
+  animation-name: changecolor;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
-.evolve.text{
-	animation-name: changecolor-text;
-	animation-duration: 30s;
-	animation-iteration-count: infinite;
-	animation-timing-function: ease-in-out;
+.evolve.text {
+  animation-name: changecolor-text;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
-@keyframes change_gradient{
-	0%   {
-		background-image: url(../images/918Software_Logo.svg), linear-gradient(180deg, white, #CCff99);
-	}
-	50%  {
-		background-image: url(../images/918Software_Logo.svg), linear-gradient(180deg, #CCff99, white);
-	}
-	100% {
-		background-image: url(../images/918Software_Logo.svg), linear-gradient(180deg, white, #CCff99);
-	}
+@keyframes change_gradient {
+  0% {
+    background-image: url(../images/918Software_Logo.svg),
+      linear-gradient(180deg, white, #ccff99);
+  }
+  50% {
+    background-image: url(../images/918Software_Logo.svg),
+      linear-gradient(180deg, #ccff99, white);
+  }
+  100% {
+    background-image: url(../images/918Software_Logo.svg),
+      linear-gradient(180deg, white, #ccff99);
+  }
 }
 .evolve2 {
-	animation-name: changecolor;
-	animation-duration: 60s;
-	animation-iteration-count: infinite;
-	animation-timing-function: ease-in-out;
+  animation-name: changecolor;
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
 
-@keyframes change_size{
-	0%   {
-		width: 100%;
-	}
-	100% {
-		width: 300%;
-	}
+@keyframes change_size {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 300%;
+  }
 }
 
-@keyframes phase1{
-	100% {
-		height: 100vh;
-		width: 100vh;
-		top: 0;
-		left: 0;
-		position: absolute;
-	}
+@keyframes phase1 {
+  100% {
+    height: 100vh;
+    width: 100vh;
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
 }
 
 .testing {
-	animation-name: phase1;
-	animation-duration: 1s;
-	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
+  animation-name: phase1;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .div-block-6 {
-	cursor: pointer; 
+  cursor: pointer;
 }
-@keyframes focus{
-	0%   {
-		transform:rotate(0deg);
-	}
-	50%  {
-		transform:rotate(2deg);
-	}
-	100% {
-		transform:rotate(0deg);
-	}
+@keyframes focus {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 @keyframes new_hover {
-    100% {
-		transform:rotate(90deg);
-    }
+  100% {
+    transform: rotate(90deg);
+  }
 }
 .hoverme:hover {
-	animation-name: new_hover;
-	animation-duration: .5s;
-	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
+  animation-name: new_hover;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .move_918 {
-	animation-name: new_top;
-	animation-duration: 2s;
-	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
+  animation-name: new_top;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .enlarge_me {
-	transition: transform .5s ease-out;
-	z-index: 5;
-	transform: scale(3.0);
-	animation-delay: 2s 		
-	
+  transition: transform 0.5s ease-out;
+  z-index: 5;
+  transform: scale(3);
+  animation-delay: 2s;
 }
 
-@keyframes shrink_logo{
-	0% {
-	}
-	50% {
-	}
-	100% {
-		width: 28%;
-		height: 28%;
-		border-radius: 3px;
-		top: 34%;
-		left: 34%; 
-	}
+@keyframes shrink_logo {
+  0% {
+    width: 240%;
+    height: 240%;
+  }
+  50% {
+    width: 134%;
+    height: 134%;
+  }
+  100% {
+    width: 28%;
+    height: 28%;
+    border-radius: 3px;
+  }
 }
 
 .div-918.shrink_logo {
-	animation-name: shrink_logo;
-	animation-duration: 2s;
-	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
+  animation-name: shrink_logo;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
-@keyframes new_top{
-	0% {
-		background-color: white;
-	}
-	50% {
-		background-color: black;
-	}
-	100% {
-		transform: scale(.3);
-		top: 304px;
-		background-color: white;
-	}
+@keyframes new_top {
+  0% {
+    background-color: white;
+    transform: scale();
+  }
+  50% {
+    background-color: black;
+  }
+  100% {
+    transform: scale(0.3);
+    background-color: white;
+  }
 }
 
+@keyframes logo-transform {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
-@media (max-width: 991px) {
-	@keyframes new_top{
-		0% {
-			background-color: white;
-		}
-		50% {
-			background-color: black;
-		}
-		100% {
-			transform: scale(.3);
-			top: 302px;
-			background-color: white;
-		}
-	}
-	.div-918{
-		/*top: -300px;
-    	left: -64px;*/
-	}
-	.div-buttons {
-		left: -13px;	
-	}
-	.about_us {
-		transform: scale(0.6);
-		position: absolute;
-		left: 0;
-	}
+.div-918 {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-@media (min-device-width : 320px) and (max-device-width : 568px) { 
-	.div-918{
-		transform: scale(0.6);
-	}
-
+/* Disable any other animations */
+.div-918.shrink_logo,
+.div-918.evolve {
+  animation: none !important;
 }
 
 @media (max-width: 767px) {
-	@keyframes new_top{
-		0% {
-			background-color: white;
-		}
-		50% {
-			background-color: black;
-		}
-		100% {
-			transform: scale(.4);
-			top: 244px;
-			background-color: white;
-		}
-	}
-	.enlarge_me {
-		transform: scale(1.6);
-		animation-delay: 2s 		
-	}
-	.div-918{
-		top: -300px;
-    	left: -64px;
-		border-radius: 10px;
-	}
+  .div-buttons {
+    width: 324px;
+    height: 324px;
+  }
+}
+
+@media (max-width: 479px) {
+  .div-buttons {
+    width: 243px;
+    height: 243px;
+  }
+}
+
+@media (max-width: 991px) {
+  .div-buttons {
+    left: -13px;
+  }
+  .about_us {
+    position: absolute;
+    left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .enlarge_me {
+    transform: scale(1.6);
+    animation-delay: 2s;
+  }
+  .div-918 {
+    top: -300px;
+    left: -64px;
+    border-radius: 10px;
+  }
 }
 @media (max-width: 479px) {
-	.enlarge_me {
-		transform: scale(1.4);
-		animation-delay: 2s 		
-	}
-	.div-918{
-		width: 260px;
-		height: 260px;
-		border-radius: 10px;
-	}
+  .enlarge_me {
+    transform: scale(1.4);
+    animation-delay: 2s;
+  }
+  .div-918 {
+    width: 260px;
+    height: 260px;
+    border-radius: 10px;
+  }
 }

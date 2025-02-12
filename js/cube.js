@@ -70,7 +70,8 @@ function main() {
   // objects we'll be drawing.
   const buffers = initBuffers(gl);
 
-  const texture = loadTexture(gl, '../static/images/918-album.png');
+  console.log('Loading texture from:', 'images/918-album.png');
+  const texture = loadTexture(gl, 'images/918-album.png');
 
   var then = 0;
 
@@ -247,8 +248,13 @@ function loadTexture(gl, url) {
                 width, height, border, srcFormat, srcType,
                 pixel);
 
+  console.log('Loading texture from:', url);
+  console.log('Attempting to load texture...');
+  console.log('Base URL:', window.location.href);
+  console.log('Image URL:', new URL(url, window.location.href).href);
   const image = new Image();
   image.onload = function() {
+    console.log('Image loaded successfully');
     gl.bindTexture(gl.TEXTURE_2D, texture);
     gl.texImage2D(gl.TEXTURE_2D, level, internalFormat,
                   srcFormat, srcType, image);
@@ -266,6 +272,10 @@ function loadTexture(gl, url) {
        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
     }
+  };
+  image.onerror = function(err) {
+    console.error('Error loading image:', err);
+    console.error('Failed URL:', this.src);
   };
   image.src = url;
 
