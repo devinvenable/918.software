@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>918.software</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Base Styles */
+    body, html {
+      border: 0;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background-color: black;
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .container {
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+      overflow: visible;
+      height: 80%;
+      margin-top: 2%;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      background-position: 0px 0px, 0px 0px;
+      background-size: auto, 160px;
+      text-shadow: 0 -1px 0 hsla(0, 0%, 100%, .25);
+      z-index: 1;
+      display: flex;
+    }
+    .fill1 {
+      height: 50%;
+      color: white;
+      margin: 1em;
+    }
+    .left-fill {
+      color: white;
+      margin: 1em;
+      width: 0;
+    }
+    a {
+      underline: none;
+      text-decoration: none;
+      color: white;
+    }
+    .in_container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .div-buttons {
+      width: 145px;
+      height: 145px;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      margin: 1em;
+      align-self: center;
+      position: relative;
+      cursor: pointer;
+      transition: all 1s ease-out;
+    }
+    .div-918 {
+      position: absolute;
+      width: 240%;
+      height: 240%;
+      top: -260%;
+      left: -75%;
+      border-radius: 15px;
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucyA9ICJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveCA9ICIwIDAgMjAwIDIwMCI+PGcgZmlsbCA9ICJibGFjayI+PHBhdGggZCA9ICJNNTAgNTBoMTAwdjEwMEg1MHoiLz48L2c+PC9zdmc+');
+      background-repeat: no-repeat;
+      z-index: 10;
+      background-color: white;
+      background-size: contain;
+      background-position: center;
+      transition: all 1s ease-out;
+    }
+    .div-nine {
+      margin: 3px;
+      width: 29%;
+      height: 29%;
+      border-radius: 5px;
+      background-color: white;
+      text-shadow: 0 -1px 0 hsla(0, 0%, 100%, .25);
+      font-size: 80%;
+      cursor: pointer;
+      transition: all 0.5s ease-out;
+    }
+    .about_us {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: white;
+      padding: 2rem;
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
+      animation-delay: 2s;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .typing-text {
+      min-height: 1.6em;
+      margin-bottom: 1.5em;
+      position: relative;
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+      animation-delay: 2s;
+    }
+    .typing-text::after {
+      content: '|';
+      position: absolute;
+      right: -4px;
+      animation: cursor-blink 1s infinite;
+      opacity: 0;
+      animation-delay: 2.5s;
+      animation: cursor-blink 1s infinite 2.5s;
+    }
+    @keyframes cursor-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .shrink_logo {
+      transform: scale(0.6);
+      transition: all 1s ease-out;
+    }
+    .enlarge_me {
+      transform: scale(1.2);
+      transition: all 1s ease-out;
+    }
+    .hoverme {
+      opacity: 0.8;
+      transition: all 0.5s ease-out;
+    }
+    .hoverme:hover {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    /* WebGL Styles */
+    canvas {
+      border: 2px solid black;
+      background-color: black;
+    }
+    #glcanvas {
+      position: absolute;
+      left: 0;
+      z-index: -20000;
+    }
+    .movecube {
+      animation-name: movecube;
+      animation-duration: 40s;
+      animation-iteration-count: infinite;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in-out;
+    }
+    @keyframes movecube {
+      0% { left: -40%; top: -40%; }
+      35% { left: 60%; top: 60%; }
+      50% { left: -10%; top: 20%; }
+      75% { left: 60%; top: 60%; }
+      100% { left: -40%; top: -40%; }
+    }
+  </style>
+</head>
+<body class="body">
+  <canvas id="glcanvas" class="movecube" width="640" height="480"></canvas>
+  <div class="container noevolve">
+    <div class="left-fill evolve">
+    </div>
+    <div class="in_container">
+      <div class="fill1">
+        <div class="about_us">
+          <div class="typing-text" data-text="WE are a team of international Python developers headquartered in Tulsa, OK"></div>
+          <div class="typing-text" data-text="WE build web and business logic systems"></div>
+          <div class="typing-text" data-text="Contact: devin@918.software"></div>
+        </div>
+      </div>
+      <div class="div-buttons">
+        <div class="div-918 expanded evolve">
+        </div>
+        <div class="div-nine one evolve"></div>
+        <div class="div-nine two evolve2"></div>
+        <div class="div-nine three evolve"></div>
+        <div class="div-nine four evolve2"></div>
+        <div id="center" class="div-nine five evolve"></div>
+        <div class="div-nine six evolve2"></div>
+        <div class="div-nine seven evolve"></div>
+        <div class="div-nine eight evolve2"></div>
+        <div class="div-nine nine evolve"></div>
+      </div>
+    </div>  
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js" integrity="sha256-ihAoc6M/JPfrIiIeayPE9xjin4UWjsx2mjW/rtmxLM4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js" integrity="sha512-zhHQR0/H5SEBL3Wn6yYSaTTZej12z0hVZKOv3TwCUXT1z5qeqGcXJLLrbERYRScEDDpYIJhPC1fk31gqR783iQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <script>
+    // Typing Effect
+    class TypingEffect {
+      constructor(element, text, speed = 50) {
+        this.element = element;
+        this.text = text;
+        this.speed = speed;
+        this.currentChar = 0;
+        this.isComplete = false;
+      }
+
+      type() {
+        return new Promise((resolve) => {
+          const typeNextChar = () => {
+            if (this.currentChar < this.text.length) {
+              this.element.textContent = this.text.slice(0, this.currentChar + 1);
+              this.currentChar++;
+              setTimeout(typeNextChar, this.speed);
+            } else {
+              this.isComplete = true;
+              resolve();
+            }
+          };
+          typeNextChar();
+        });
+      }
+    }
+
+    class SequentialTyping {
+      constructor(elements, speed = 50, delayBetweenTexts = 500) {
+        this.typingEffects = Array.from(elements).map(el => 
+          new TypingEffect(el, el.dataset.text, speed)
+        );
+        this.currentIndex = 0;
+        this.delayBetweenTexts = delayBetweenTexts;
+      }
+
+      async startTyping() {
+        for (const effect of this.typingEffects) {
+          await effect.type();
+          await new Promise(resolve => setTimeout(resolve, this.delayBetweenTexts));
+        }
+      }
+    }
+
+    // Main.js
+    $(document).ready(function() {
+      const triggerAnimation = () => {
+        if (!$('.div-918').hasClass('shrink_logo')) {
+          $('.div-918').addClass('shrink_logo');
+          $('.div-nine').addClass('hoverme');
+          
+          if (!$('.div-buttons').hasClass('enlarge_me')) {
+            $('.div-buttons').addClass('enlarge_me');
+          }
+
+          if (!$('.one').hasClass('one_image')) {
+            $('.one').addClass('one_image');
+          }
+          if (!$('.nine').hasClass('one_image')) {
+            $('.nine').addClass('one_image');
+          }
+        }
+      };
+
+      setTimeout(triggerAnimation, 2000);
+
+      $(document).on('click', '.div-buttons', triggerAnimation);
+
+      $(document).on('click', '.div-nine div', function() {
+        if ($('.div-nine').hasClass('enlarge_me')) {
+          console.log('enlarged');
+          $('.div-block-14').addClass('testing');
+        }
+      });
+    });
+
+    // Initialize typing effect
+    document.addEventListener('DOMContentLoaded', () => {
+      const typingElements = document.querySelectorAll('.typing-text');
+      const sequentialTyping = new SequentialTyping(typingElements, 40, 1000);
+      setTimeout(() => {
+        sequentialTyping.startTyping();
+      }, 2500);
+    });
+
+    // WebGL Cube
+    var cubeRotation = 0.0;
+
+    function main() {
+      const canvas = document.querySelector('#glcanvas');
+      const gl = canvas.getContext('webgl');
+
+      if (!gl) {
+        console.log('WebGL not supported');
+        return;
+      }
+
+      // Simplified cube rendering with basic rotation
+      const vsSource = `
+        attribute vec4 aVertexPosition;
+        uniform mat4 uModelViewMatrix;
+        uniform mat4 uProjectionMatrix;
+        void main() {
+          gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
+        }
+      `;
+
+      const fsSource = `
+        void main() {
+          gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+        }
+      `;
+
+      const shaderProgram = initShaderProgram(gl, vsSource, fsSource);
+      const programInfo = {
+        program: shaderProgram,
+        attribLocations: {
+          vertexPosition: gl.getAttribLocation(shaderProgram, 'aVertexPosition'),
+        },
+        uniformLocations: {
+          projectionMatrix: gl.getUniformLocation(shaderProgram, 'uProjectionMatrix'),
+          modelViewMatrix: gl.getUniformLocation(shaderProgram, 'uModelViewMatrix'),
+        },
+      };
+
+      const buffers = initBuffers(gl);
+      let then = 0;
+
+      function render(now) {
+        now *= 0.001;
+        const deltaTime = now - then;
+        then = now;
+
+        drawScene(gl, programInfo, buffers, deltaTime);
+        requestAnimationFrame(render);
+      }
+      requestAnimationFrame(render);
+    }
+
+    function initBuffers(gl) {
+      const positionBuffer = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+
+      const positions = [
+        // Front face
+        -1.0, -1.0,  1.0,
+         1.0, -1.0,  1.0,
+         1.0,  1.0,  1.0,
+        -1.0,  1.0,  1.0,
+        // Back face
+        -1.0, -1.0, -1.0,
+        -1.0,  1.0, -1.0,
+         1.0,  1.0, -1.0,
+         1.0, -1.0, -1.0,
+      ];
+
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+
+      const indexBuffer = gl.createBuffer();
+      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
+      const indices = [
+        0,  1,  2,    0,  2,  3,  // front
+        4,  5,  6,    4,  6,  7,  // back
+        0,  4,  7,    0,  7,  1,  // bottom
+        2,  6,  5,    2,  5,  3,  // top
+      ];
+      gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
+
+      return {
+        position: positionBuffer,
+        indices: indexBuffer,
+      };
+    }
+
+    function drawScene(gl, programInfo, buffers, deltaTime) {
+      gl.clearColor(0.0, 0.0, 0.0, 1.0);
+      gl.clearDepth(1.0);
+      gl.enable(gl.DEPTH_TEST);
+      gl.depthFunc(gl.LEQUAL);
+
+      gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+      const fieldOfView = 45 * Math.PI / 180;
+      const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
+      const zNear = 0.1;
+      const zFar = 100.0;
+      const projectionMatrix = mat4.create();
+
+      mat4.perspective(projectionMatrix,
+                      fieldOfView,
+                      aspect,
+                      zNear,
+                      zFar);
+
+      const modelViewMatrix = mat4.create();
+
+      mat4.translate(modelViewMatrix,
+                    modelViewMatrix,
+                    [-0.0, 0.0, -6.0]);
+
+      cubeRotation += deltaTime;
+      mat4.rotate(modelViewMatrix,
+                  modelViewMatrix,
+                  cubeRotation,
+                  [0, 1, 1]);
+
+      {
+        const numComponents = 3;
+        const type = gl.FLOAT;
+        const normalize = false;
+        const stride = 0;
+        const offset = 0;
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position);
+        gl.vertexAttribPointer(
+            programInfo.attribLocations.vertexPosition,
+            numComponents,
+            type,
+            normalize,
+            stride,
+            offset);
+        gl.enableVertexAttribArray(
+            programInfo.attribLocations.vertexPosition);
+      }
+
+      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, buffers.indices);
+
+      gl.useProgram(programInfo.program);
+
+      gl.uniformMatrix4fv(
+          programInfo.uniformLocations.projectionMatrix,
+          false,
+          projectionMatrix);
+      gl.uniformMatrix4fv(
+          programInfo.uniformLocations.modelViewMatrix,
+          false,
+          modelViewMatrix);
+
+      {
+        const vertexCount = 36;
+        const type = gl.UNSIGNED_SHORT;
+        const offset = 0;
+        gl.drawElements(gl.TRIANGLES, vertexCount, type, offset);
+      }
+    }
+
+    function initShaderProgram(gl, vsSource, fsSource) {
+      const vertexShader = loadShader(gl, gl.VERTEX_SHADER, vsSource);
+      const fragmentShader = loadShader(gl, gl.FRAGMENT_SHADER, fsSource);
+
+      const shaderProgram = gl.createProgram();
+      gl.attachShader(shaderProgram, vertexShader);
+      gl.attachShader(shaderProgram, fragmentShader);
+      gl.linkProgram(shaderProgram);
+
+      if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
+        console.log('Unable to initialize the shader program: ' + gl.getProgramInfoLog(shaderProgram));
+        return null;
+      }
+
+      return shaderProgram;
+    }
+
+    function loadShader(gl, type, source) {
+      const shader = gl.createShader(type);
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+
+      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+        console.log('An error occurred compiling the shaders: ' + gl.getShaderInfoLog(shader));
+        gl.deleteShader(shader);
+        return null;
+      }
+
+      return shader;
+    }
+
+    main();
+  </script>
+</body>
+</html>
