@@ -110,6 +110,8 @@ function initBuffers(gl) {
 
   gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 
+  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+
   // Now create an array of positions for the cube.
 
   const positions = [

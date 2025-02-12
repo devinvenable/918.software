@@ -2,10 +2,6 @@
   font-family: "textgame";
   src: url("../fonts/PRNumber3.ttf");
 }
-@font-face {
-  font-family: "textgame80";
-  src: url("../fonts/PRNumber3.ttf");
-}
 
 body,
 html {
@@ -94,7 +90,6 @@ a {
   position: relative;
   z-index: 9999;
   color: white;
-  opacity: 0;
   animation: fadeIn 1s ease-out forwards;
 }
 .typing-text::after {
@@ -384,50 +379,22 @@ a {
 }
 
 @media (max-width: 767px) {
-  .div-buttons {
-    width: 324px;
-    height: 324px;
+  .fill1 {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 1rem;
+    text-align: center; /* Center the text if desired */
+  }
+  .div-container {
+    display: none;
   }
 }
 
-@media (max-width: 479px) {
-  .div-buttons {
-    width: 243px;
-    height: 243px;
-  }
-}
-
-@media (max-width: 991px) {
-  .div-buttons {
-    left: -13px;
-  }
-  .about_us {
-    position: absolute;
-    left: 0;
-  }
-}
-
-@media (max-width: 767px) {
-  .enlarge_me {
-    transform: scale(1.6);
-    animation-delay: 2s;
-  }
-  .div-918 {
-    top: -300px;
-    left: -64px;
-    border-radius: 10px;
-  }
-}
-@media (max-width: 479px) {
-  .enlarge_me {
-    transform: scale(1.4);
-    animation-delay: 2s;
-  }
-  .div-918 {
-    width: 260px;
-    height: 260px;
-    border-radius: 10px;
-  }
+.cube-container {
+  position: relative;
+  transform-origin: center;
+  animation: approach 120s forwards;
 }
 
 @keyframes approach {
@@ -439,19 +406,55 @@ a {
   }
 }
 
-@keyframes reduceAmp {
+.move-wrapper {
+  /* Animate directly from your starting offset to translate(0,0) over 120s */
+  animation: movecube 120s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+}
+
+@keyframes movecube {
   0% {
-    --amp: 1;
+    transform: translate(-2%, -20%);
+  }
+  25% {
+    transform: translate(19%, 0%);
+  }
+  50% {
+    transform: translate(29%, 20%);
+  }
+  75% {
+    transform: translate(-1%, -10%);
   }
   100% {
-    --amp: 0;
+    transform: translate(0, 0);
   }
 }
 
-.cube-container {
-  position: relative;
-  transform-origin: center;
-  --amp: 1;
-  /* Run both the scaling (approach) and amplitude reduction */
-  animation: approach 120s forwards, reduceAmp 120s forwards infinite;
+canvas {
+  border: 1px solid black;
+  background-color: black;
+}
+video {
+  display: none;
+}
+
+#glcanvas {
+  position: absolute;
+  left: -1;
+  z-index: -20001;
+}
+
+@keyframes scalecube {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+
+.movecube {
+  animation: scalecube 79s cubic-bezier(0.4, 0, 0.6, 1);
 }
