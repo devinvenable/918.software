@@ -1,44 +1,51 @@
 canvas {
-	border: 2px solid black;
-	background-color: black;
+  border: 2px solid black;
+  background-color: black;
 }
 video {
-	display: none;
+  display: none;
 }
 
 #glcanvas {
-	position: absolute;
-	left: 0;
-	z-index: -20000;
+  position: absolute;
+  left: 0;
+  z-index: -20000;
+}
+@keyframes movecube {
+  0% {
+    transform: translate(calc(-1% * var(--amp)), calc(-20% * var(--amp)));
+  }
+  25% {
+    transform: translate(calc(20% * var(--amp)), calc(0% * var(--amp)));
+  }
+  50% {
+    transform: translate(calc(30% * var(--amp)), calc(20% * var(--amp)));
+  }
+  75% {
+    transform: translate(calc(0% * var(--amp)), calc(-10% * var(--amp)));
+  }
+  100% {
+    transform: translate(calc(-1% * var(--amp)), calc(-20% * var(--amp)));
+  }
 }
 
-@keyframes movecube {
-    0% {
-		left: -40%;
-		top: -40%;
-    }
-    35% {
-		left: 60%;
-		top: 60%;
-    }
-    50% {
-		left: -10%;
-		top: 20%;
-    }
-    75% {
-		left: 60%;
-		top: 60%;
-    }
-    100% {
-		left: -40%;
-		top: -40%;
-    }
-    
+@keyframes scalecube {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
 }
+
+/* Apply movecube to a wrapper and scalecube to the canvas */
+.move-wrapper {
+  animation: movecube 80s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
 .movecube {
-	animation-name: movecube;
-	animation-duration: 40s;
-	animation-iteration-count: infinite;
-	animation-fill-mode: forwards;
-	animation-timing-function: ease-in-out;
+  animation: scalecube 80s infinite cubic-bezier(0.4, 0, 0.6, 1);
 }

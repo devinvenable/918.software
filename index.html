@@ -14,7 +14,6 @@
     />
     <link href="css/webflow.css" rel="stylesheet" type="text/css" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/effects.css" rel="stylesheet" type="text/css" />
     <link href="css/webgl.css" rel="stylesheet" type="text/css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Ubuntu+Mono&display=swap"
@@ -42,24 +41,24 @@
     />
   </head>
   <body class="body">
-    <canvas id="glcanvas" class="movecube" width="640" height="480"></canvas>
+    <div class="cube-container">
+      <div class="move-wrapper">
+        <canvas
+          id="glcanvas"
+          class="movecube"
+          width="640"
+          height="480"
+        ></canvas>
+      </div>
+    </div>
+
     <div class="container noevolve">
       <div class="left-fill evolve"></div>
+      <div class="div-918"></div>
 
       <div class="in_container">
         <div class="div-container">
-          <div class="fill1">
-            <div class="cube">
-              <svg width="100" height="100" viewBox="0 0 100 100">
-                <rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
-                <rect x="25" y="25" width="50" height="50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
-                <line x1="25" y1="25" x2="0" y2="0" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
-                <line x1="75" y1="25" x2="100" y2="0" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
-                <line x1="75" y1="75" x2="100" y2="100" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
-                <line x1="25" y1="75" x2="0" y2="100" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
-              </svg>
-            </div>
-          </div>
+          <div class="fill1"></div>
         </div>
         <div class="fill1">
           <div class="about_us">
@@ -77,9 +76,6 @@
             ></div>
           </div>
         </div>
-        <div class="div-buttons">
-          <div class="div-918 evolve"></div>
-        </div>
       </div>
     </div>
 
@@ -96,7 +92,5 @@
     ></script>
     <script src="js/cube.js?v=1" type="text/javascript"></script>
     <script src="js/typing-effect.js?v=1" type="text/javascript"></script>
-    <script src="js/main.js?v=1" type="text/javascript"></script>
-    <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
   </body>
 </html>
