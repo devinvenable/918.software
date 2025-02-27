@@ -26,10 +26,19 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
       
+      - name: Build
+        run: |
+          # Add any build commands here if needed
+          # For example: npm install && npm run build
+          # Or just create an empty artifact directory
+          mkdir -p _site
+          cp -r * _site/ || true
+          rm -rf _site/private_docs _site/.github || true
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
           # Specify the artifact name (default is already github-pages)
           name: github-pages
 
