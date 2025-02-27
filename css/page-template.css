@@ -9,6 +9,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .page-header {
@@ -19,6 +21,7 @@
   align-items: center;
   text-align: center;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .page-title {
@@ -51,6 +54,7 @@
   margin: 0 auto;
   padding: 2rem 1.5rem;
   flex: 1;
+  box-sizing: border-box;
 }
 
 .section {
@@ -142,6 +146,7 @@
 .cta-container {
   margin: 3rem 0;
   text-align: center;
+  width: 100%;
 }
 
 .btn-cta {
@@ -159,6 +164,7 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  margin: 0 auto;
 }
 
 .btn-cta::before {

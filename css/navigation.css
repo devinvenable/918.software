@@ -44,7 +44,7 @@
 .nav-menu {
   position: fixed;
   top: 0;
-  right: -100%;
+  right: 0;
   width: 80%;
   max-width: 25rem;
   height: 100%;
@@ -61,7 +61,6 @@
 }
 
 .nav-menu.active {
-  right: 0;
   transform: translateX(0);
 }
 
@@ -84,6 +83,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  text-align: left;
 }
 
 .nav-links li {
@@ -174,12 +174,16 @@ body.menu-open {
   height: 100%;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 /* Responsive breakpoints */
 @media (max-width: 768px) {
   .nav-menu {
     width: 90%;
     max-width: 100%;
-    right: -90%;
+    transform: translateX(100%);
     padding: 5rem 1.5rem 1.5rem;
   }
   
@@ -209,8 +213,7 @@ body.menu-open {
 
   .nav-menu {
     width: 100%;
-    right: -100%;
-    left: auto;
+    transform: translateX(100%);
     padding: 5rem 1.5rem 1.5rem;
     box-sizing: border-box;
   }
