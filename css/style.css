@@ -38,10 +38,11 @@ body {
   font-family: "textgame";
   color: white;
   margin: 1em;
-  position: absolute;
-  top: 0;
-  right: 0;
   z-index: 2;
+  width: 100%;
+  position: relative;
+  display: block;
+  text-align: center;
 }
 .left-fill {
   font-family: "textgame";
@@ -101,7 +102,7 @@ a {
   color: white;
   animation: fadeIn 1s ease-out forwards;
   margin: 0 auto;
-  padding-right: 5rem; /* Add padding to prevent overlap with the menu icon */
+  padding: 0.5rem 1rem;
   text-align: center;
   display: block;
 }
@@ -153,6 +154,8 @@ a {
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
+  position: relative;
+  z-index: 10;
 }
 @keyframes fadeIn {
   0% {
@@ -400,8 +403,9 @@ a {
   opacity: 0;
   animation: fadeIn 1s ease-out forwards;
   transition: opacity 0.5s ease-out;
+  position: relative;
+  z-index: 10;
 }
-
 .cta-heading {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   font-size: 1.4rem;
@@ -457,10 +461,6 @@ a {
 @media (max-width: 767px) {
   .fill1 {
     position: relative;
-    top: auto;
-    right: auto;
-    margin: 1rem;
-    text-align: center; /* Center the text if desired */
   }
   .div-container {
     display: none;
@@ -483,20 +483,28 @@ a {
 
 @media (min-width: 768px) {
   .fill1 {
-    position: static;
+    position: relative;
     margin: 0 auto;
     text-align: center;
     width: 100%;
+    padding: 0 5rem; /* Add padding to keep content away from the nav toggle */
   }
   
   .about_us {
     text-align: center;
     margin: 0 auto;
+    padding: 2rem 5rem;
   }
   
   .typing-text {
     text-align: center;
-    margin: 0 auto;
+    margin: 0.5rem auto;
+  }
+  
+  /* Ensure CTA section is visible */
+  .cta-section {
+    position: relative;
+    z-index: 10;
   }
 }
 
