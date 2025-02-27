@@ -87,10 +87,14 @@ a {
   background-image: url(../images/918Software_Logo.svg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 80%;
+  background-size: contain;
   animation: logoFadeIn 90s forwards;
   max-width: 100%;
   box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2; /* Above canvas, below text */
 }
 
 .container {
@@ -117,12 +121,12 @@ a {
   justify-content: center;
   width: 100%;
   z-index: 10;
-  padding: 1rem;
+  padding: 2rem;
+  box-sizing: border-box;
   position: absolute;
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  box-sizing: border-box;
 }
 
 .typing-text {
@@ -517,21 +521,13 @@ a {
 .cube-container {
   position: absolute;
   transform-origin: center;
-  animation: approach 120s forwards;
+  animation: none; /* Remove the scale animation */
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 50%; /* Reduce width to 50% of viewport */
+  height: 50%; /* Reduce height to 50% of viewport */
   z-index: 1;
-}
-
-@keyframes approach {
-  from {
-    transform: scale(1.5);
-  }
-  to {
-    transform: scale(3.5);
-  }
+  overflow: hidden;
 }
 
 .move-wrapper {
@@ -539,31 +535,42 @@ a {
   animation: movecube 120s cubic-bezier(0.4, 0, 0.6, 1) forwards;
   width: 100%;
   height: 100%;
+  transform-origin: left center; /* Start from left side */
 }
 
 #glcanvas {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  left: -50%; /* Start offscreen to the left */
+  width: 50%; /* Smaller size */
+  height: 50%;
+  transform-origin: left center;
+}
+
+@keyframes approach {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1.2);
+  }
 }
 
 @keyframes movecube {
   0% {
-    transform: translate(-2%, -20%);
+    transform: translate(-100%, 0); /* Start offscreen left */
   }
   25% {
-    transform: translate(19%, 0%);
+    transform: translate(50%, 20%);
   }
   50% {
-    transform: translate(29%, 20%);
+    transform: translate(100%, -30%);
   }
   75% {
-    transform: translate(-1%, -10%);
+    transform: translate(150%, 10%);
   }
   100% {
-    transform: translate(0, 0);
+    transform: translate(200%, 0); /* End offscreen right */
   }
 }
 
@@ -589,16 +596,4 @@ video {
 
 .movecube {
   animation: scalecube 79s cubic-bezier(0.4, 0, 0.6, 1);
-}
-
-/* New simplified layout using flexbox */
-.text-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  z-index: 10;
-  padding: 2rem;
-  box-sizing: border-box;
 }
