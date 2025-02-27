@@ -37,11 +37,12 @@ body {
 .fill1 {
   font-family: "textgame";
   color: white;
-  margin: 1em;
-  position: absolute;
-  top: 0;
-  right: 0;
+  margin: 1rem;
+  position: relative;
+  top: auto;
+  right: auto;
   z-index: 2;
+  text-align: center;
 }
 .left-fill {
   font-family: "textgame";
@@ -60,8 +61,9 @@ a {
   flex: 1;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
   padding: 0 1rem;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .div-buttons {
   position: relative;
@@ -100,7 +102,9 @@ a {
   z-index: 9999;
   color: white;
   animation: fadeIn 1s ease-out forwards;
-  padding-right: 5rem;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0 0.5rem;
 }
 .typing-text::after {
   content: "|";
@@ -449,29 +453,8 @@ a {
 }
 
 @media (max-width: 767px) {
-  .fill1 {
-    position: relative;
-    top: auto;
-    right: auto;
-    margin: 1rem;
-    text-align: center; /* Center the text if desired */
-  }
   .div-container {
     display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .in_container {
-    padding: 0 1rem;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .typing-text {
-    max-width: 100%;
-    box-sizing: border-box;
-    padding: 0 0.5rem;
   }
 }
 
