@@ -44,6 +44,16 @@ class SequentialTyping {
             await effect.type();
             await new Promise(resolve => setTimeout(resolve, this.delayBetweenTexts));
         }
+        
+        // After all typing is complete, show the CTA section
+        const ctaSection = document.querySelector('.cta-section');
+        if (ctaSection) {
+            ctaSection.style.display = 'block';
+            // Add a small delay before showing to make the transition smoother
+            setTimeout(() => {
+                ctaSection.style.opacity = '1';
+            }, 300);
+        }
     }
 }
 

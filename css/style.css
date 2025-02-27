@@ -387,6 +387,66 @@ a {
   animation: none !important;
 }
 
+/* CTA Section for Home Page */
+.cta-section {
+  margin-top: 2rem;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+  transition: opacity 0.5s ease-out;
+}
+
+.cta-heading {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: white;
+  text-align: center;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.home-cta-btn {
+  display: inline-block;
+  background-color: white;
+  color: black;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-width: 180px;
+}
+
+.home-cta-btn:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .home-cta-btn {
+    width: 100%;
+    max-width: 280px;
+    margin-bottom: 0.5rem;
+  }
+}
+
 @media (max-width: 767px) {
   .fill1 {
     position: relative;
