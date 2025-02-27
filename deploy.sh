@@ -24,9 +24,10 @@ fi
 echo "Pulling latest changes from remote..."
 git pull origin $BRANCH
 
-# Stage all changes
-echo "Staging changes..."
+# Stage all changes except the private_docs directory
+echo "Staging changes (excluding private_docs)..."
 git add .
+git reset -- private_docs/
 
 # Check if there are changes to commit
 if git diff --staged --quiet; then
@@ -43,4 +44,4 @@ fi
 
 echo "Deployment complete!"
 echo "Your site will be available at https://$SITE_DOMAIN"
-echo "Note: If you recently made your repository private, the site may no longer be publicly accessible through GitHub Pages."
+echo "Note: The private_docs directory has been excluded from the deployment."

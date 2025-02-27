@@ -13,6 +13,7 @@
       rel="stylesheet"
     />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/navigation.css" rel="stylesheet" type="text/css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Ubuntu+Mono&display=swap"
       rel="stylesheet"
@@ -39,6 +40,28 @@
     />
   </head>
   <body class="body">
+    <!-- Navigation -->
+    <div class="nav-container">
+      <div class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    
+    <nav class="nav-menu">
+      <ul class="nav-links">
+        <li style="--i:0;"><a href="index.html">Home</a></li>
+        <li style="--i:1;"><a href="about.html">About Us</a></li>
+        <li style="--i:2;"><a href="ai-integration.html">AI Integration</a></li>
+        <li style="--i:3;"><a href="workflow-automation.html">Workflow Automation</a></li>
+        <li style="--i:4;"><a href="ai-training.html">AI Training</a></li>
+        <li style="--i:5;"><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    
+    <div class="overlay"></div>
+    
     <div class="cube-container">
       <div class="move-wrapper">
         <canvas
@@ -70,6 +93,10 @@
             ></div>
             <div
               class="typing-text"
+              data-text="WE specialize in AI integration, workflow automation, and AI training"
+            ></div>
+            <div
+              class="typing-text"
               data-text="Contact: devin@918.software"
             ></div>
           </div>
@@ -90,5 +117,6 @@
     ></script>
     <script src="js/cube.js?v=1" type="text/javascript"></script>
     <script src="js/typing-effect.js?v=1" type="text/javascript"></script>
+    <script src="js/navigation.js?v=1" type="text/javascript"></script>
   </body>
 </html>
