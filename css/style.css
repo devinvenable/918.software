@@ -521,56 +521,55 @@ a {
 .cube-container {
   position: absolute;
   transform-origin: center;
-  animation: none; /* Remove the scale animation */
+  animation: none;
   top: 0;
   left: 0;
-  width: 50%; /* Reduce width to 50% of viewport */
-  height: 50%; /* Reduce height to 50% of viewport */
+  width: 55%;
+  height: 55%;
   z-index: 1;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .move-wrapper {
-  /* Animate directly from your starting offset to translate(0,0) over 120s */
-  animation: movecube 120s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+  animation: movecube 90s cubic-bezier(0.4, 0, 0.6, 1) forwards;
   width: 100%;
   height: 100%;
-  transform-origin: left center; /* Start from left side */
+  transform-origin: left center;
 }
 
 #glcanvas {
   position: absolute;
   top: 0;
-  left: -50%; /* Start offscreen to the left */
-  width: 50%; /* Smaller size */
-  height: 50%;
+  left: -40%;
+  width: 55%;
+  height: 55%;
   transform-origin: left center;
 }
 
 @keyframes approach {
   from {
-    transform: scale(0.8);
+    transform: scale(0.9);
   }
   to {
-    transform: scale(1.2);
+    transform: scale(1.3);
   }
 }
 
 @keyframes movecube {
   0% {
-    transform: translate(-100%, 0); /* Start offscreen left */
+    transform: translate(-80%, 0);
   }
-  25% {
-    transform: translate(50%, 20%);
+  20% {
+    transform: translate(40%, 20%);
   }
-  50% {
-    transform: translate(100%, -30%);
+  45% {
+    transform: translate(90%, -25%);
   }
-  75% {
-    transform: translate(150%, 10%);
+  70% {
+    transform: translate(140%, 10%);
   }
   100% {
-    transform: translate(200%, 0); /* End offscreen right */
+    transform: translate(200%, 0);
   }
 }
 
