@@ -37,12 +37,11 @@ body {
 .fill1 {
   font-family: "textgame";
   color: white;
-  margin: 1rem;
-  position: relative;
-  top: auto;
-  right: auto;
+  margin: 1em;
+  position: absolute;
+  top: 0;
+  right: 0;
   z-index: 2;
-  text-align: center;
 }
 .left-fill {
   font-family: "textgame";
@@ -61,9 +60,8 @@ a {
   flex: 1;
   justify-content: center;
   align-items: center;
-  padding: 0 1rem;
-  max-width: 100%;
   box-sizing: border-box;
+  padding: 0 1rem;
 }
 .div-buttons {
   position: relative;
@@ -102,9 +100,9 @@ a {
   z-index: 9999;
   color: white;
   animation: fadeIn 1s ease-out forwards;
-  max-width: 100%;
-  box-sizing: border-box;
-  padding: 0 0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  width: 100%;
 }
 .typing-text::after {
   content: "|";
@@ -148,9 +146,12 @@ a {
   font-weight: 400;
   letter-spacing: -0.01em;
   color: white;
-  padding: 2rem;
+  padding: 1rem;
   opacity: 0;
   animation: fadeIn 2s ease-out forwards;
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
 }
 @keyframes fadeIn {
   0% {
@@ -453,8 +454,29 @@ a {
 }
 
 @media (max-width: 767px) {
+  .fill1 {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 1rem;
+    text-align: center; /* Center the text if desired */
+  }
   .div-container {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .in_container {
+    padding: 0 1rem;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .typing-text {
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0 0.5rem;
   }
 }
 
@@ -524,4 +546,16 @@ video {
 
 .movecube {
   animation: scalecube 79s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* New simplified layout using flexbox */
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  z-index: 10;
+  padding: 2rem;
+  box-sizing: border-box;
 }
