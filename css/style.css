@@ -100,6 +100,10 @@ a {
   z-index: 9999;
   color: white;
   animation: fadeIn 1s ease-out forwards;
+  margin: 0 auto;
+  padding-right: 5rem; /* Add padding to prevent overlap with the menu icon */
+  text-align: center;
+  display: block;
 }
 .typing-text::after {
   content: "|";
@@ -146,6 +150,9 @@ a {
   padding: 2rem;
   opacity: 0;
   animation: fadeIn 2s ease-out forwards;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }
 @keyframes fadeIn {
   0% {
@@ -471,6 +478,25 @@ a {
     max-width: 100%;
     box-sizing: border-box;
     padding: 0 0.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .fill1 {
+    position: static;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .about_us {
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .typing-text {
+    text-align: center;
+    margin: 0 auto;
   }
 }
 
