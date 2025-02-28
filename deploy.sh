@@ -25,9 +25,10 @@ echo "Pulling latest changes from remote..."
 git pull origin $BRANCH
 
 # Stage all changes except excluded directories
-echo "Staging changes (excluding private_docs and _site)..."
+echo "Staging changes (excluding private_docs)..."
 git add .
-git reset -- private_docs/ _site/
+git add .nojekyll
+git reset -- private_docs/
 
 # Check if there are changes to commit
 if git diff --staged --quiet; then
@@ -41,10 +42,9 @@ else
     echo "Pushing changes to GitHub..."
     git push origin $BRANCH
     
-    echo "Changes pushed. GitHub Actions will now deploy your site."
-    echo "Check the Actions tab on GitHub for deployment status."
+    echo "Changes pushed. Your site will be automatically deployed by GitHub Pages."
 fi
 
-echo "Deployment process initiated!"
-echo "Your site will be available at https://$SITE_DOMAIN once GitHub Actions completes."
-echo "Note: private_docs and _site directories have been excluded from the deployment."
+echo "Deployment process complete!"
+echo "Your site will be available at https://$SITE_DOMAIN once GitHub Pages processing completes."
+echo "Note: private_docs directory has been excluded from the deployment."

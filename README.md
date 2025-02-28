@@ -4,12 +4,12 @@ Website for 918.software - Custom web and business logic systems specializing in
 
 ## Deployment
 
-This site is deployed using GitHub Pages with GitHub Actions for automation. The deployment process is as follows:
+This site is deployed using GitHub Pages directly from the main branch. The deployment process is as follows:
 
 1. Make your changes to the website files
 2. Run the deployment script: `./deploy.sh`
 3. The script will commit and push your changes to the main branch
-4. GitHub Actions will automatically build and deploy the site
+4. GitHub Pages will automatically deploy the site from the main branch
 5. The site will be available at [https://918.software](https://918.software)
 
 ## Development Notes
@@ -25,7 +25,7 @@ This site is deployed using GitHub Pages with GitHub Actions for automation. The
 - `images/` - Image assets
 - `fonts/` - Font files
 - `private_docs/` - Private documentation (not deployed)
-- `.github/workflows/` - GitHub Actions workflow configuration
+- `.nojekyll` - Tells GitHub Pages not to process your site with Jekyll
 
 ## Technical Information
 
