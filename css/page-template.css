@@ -58,7 +58,7 @@
 }
 
 .section {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   position: relative;
   opacity: 0;
   transform: translateY(30px);
@@ -144,7 +144,7 @@
 }
 
 .cta-container {
-  margin: 3rem 0;
+  margin: 2rem 0;
   text-align: center;
   width: 100%;
 }
@@ -188,8 +188,21 @@
   left: 100%;
 }
 
+.btn-cta.secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  margin-left: 1rem;
+}
+
+.btn-cta.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
 .testimonial-container {
-  margin: 3rem auto;
+  margin: 2rem auto;
   max-width: 800px;
   width: 100%;
 }
@@ -272,6 +285,76 @@
 textarea.form-control {
   min-height: 150px;
   resize: vertical;
+}
+
+.newsletter-form {
+  display: none;
+  max-width: 500px;
+  margin: 1.5rem auto;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.newsletter-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.newsletter-form .form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 1rem;
+}
+
+.newsletter-form .success-message,
+.newsletter-form .error-message {
+  display: none;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.newsletter-form .success-message {
+  background-color: rgba(39, 174, 96, 0.1);
+  border: 1px solid rgba(39, 174, 96, 0.3);
+  color: #27ae60;
+}
+
+.newsletter-form .error-message {
+  background-color: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  color: #e74c3c;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.form-checkbox input[type="checkbox"] {
+  margin-right: 10px;
+  margin-top: 3px;
+}
+
+.form-checkbox span {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .footer {
@@ -441,6 +524,15 @@ textarea.form-control {
   
   .footer-logo {
     max-width: 120px;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .btn-cta.secondary {
+    margin-left: 0;
+    margin-top: 1rem;
   }
 }
 
