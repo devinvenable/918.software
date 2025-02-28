@@ -2,6 +2,10 @@
 private_docs/
 _site/
 node_modules/
+dist/
+tmp/
+temp/
+build/
 
 # OS files
 .DS_Store
@@ -13,6 +17,9 @@ Thumbs.db
 .vscode/
 *.swp
 *.swo
+*.sublime-*
+.project
+.classpath
 
 # Environment files
 .env
@@ -22,4 +29,23 @@ Thumbs.db
 .env.production.local
 
 # Logs
+logs/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cache
+.cache/
+.sass-cache/
+.npm/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Dependency directories
+jspm_packages/
+bower_components/

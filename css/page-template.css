@@ -65,6 +65,10 @@
   transition: all 0.6s ease;
 }
 
+.page-content .section:last-of-type {
+  margin-bottom: 0;
+}
+
 .section.visible {
   opacity: 1;
   transform: translateY(0);
@@ -147,6 +151,10 @@
   margin: 2rem 0;
   text-align: center;
   width: 100%;
+}
+
+.page-content .cta-container {
+  margin-top: 0;
 }
 
 .btn-cta {
