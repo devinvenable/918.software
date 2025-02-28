@@ -596,3 +596,10 @@ video {
 .movecube {
   animation: scalecube 79s cubic-bezier(0.4, 0, 0.6, 1);
 }
+
+/* Global Overrides */
+.section {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  visibility: visible !important;
+}
