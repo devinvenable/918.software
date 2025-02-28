@@ -60,18 +60,20 @@
 .section {
   margin-bottom: 2rem;
   position: relative;
+  transition: all 0.6s ease;
+  /* Default to visible state and use JS to animate if desired */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: If you still want animation, use JS to add a starting class instead */
+.section.animate-in {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.6s ease;
 }
 
 .page-content .section:last-of-type {
   margin-bottom: 0;
-}
-
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .section-title {

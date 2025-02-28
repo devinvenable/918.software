@@ -5,21 +5,21 @@ document.addEventListener('DOMContentLoaded', function() {
   const sections = document.querySelectorAll('.section');
   
   if (sections.length > 0) {
+    // Immediately make all sections visible on all devices
+    sections.forEach(function(section) {
+      section.classList.add('visible');
+    });
+    
+    // Keep the scroll-based reveal for future sections that might be dynamically added
     const revealSection = function() {
       sections.forEach(function(section) {
-        const sectionTop = section.getBoundingClientRect().top;
-        const triggerPoint = window.innerHeight * 0.85;
-        
-        if (sectionTop < triggerPoint) {
+        if (!section.classList.contains('visible')) {
           section.classList.add('visible');
         }
       });
     };
     
-    // Initial check on load
-    revealSection();
-    
-    // Check on scroll
+    // Still check on scroll for any sections that might have been missed
     window.addEventListener('scroll', revealSection);
   }
   
