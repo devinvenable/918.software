@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       
       // Lambda API endpoint URL - replace with your actual API Gateway URL
-      const apiUrl = 'https://your-api-gateway-url.amazonaws.com/prod/process-form';
+      const apiUrl = 'https://yvhckf2ddk.execute-api.us-east-1.amazonaws.com/prod/process-form';
       
       // Send the data to the AWS Lambda via API Gateway
       fetch(apiUrl, {
