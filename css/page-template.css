@@ -314,19 +314,19 @@ textarea.form-control {
   color: white;
 }
 
-/* Add small logo styling at the top of pages */
+/* Update logo styling for better visibility */
 .page-top-logo {
   display: block;
   width: 100px;
-  height: 100px;
+  height: auto; /* Let height adjust automatically based on the image */
   margin: 1.5rem auto 0;
   opacity: 1;
   position: relative;
   z-index: 10;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 50%;
-  padding: 10px;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  background-color: transparent; /* Remove the background */
+  padding: 0; /* Remove padding */
+  border-radius: 0; /* Remove border radius */
+  box-shadow: none; /* Remove shadow */
 }
 
 @keyframes slideInFromTop {
