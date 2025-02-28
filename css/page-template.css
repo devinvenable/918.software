@@ -283,8 +283,10 @@ textarea.form-control {
 }
 
 .footer-logo {
-  max-width: 150px;
-  margin-bottom: 2rem;
+  width: 80px;
+  height: auto;
+  margin-bottom: 1rem;
+  filter: invert(1); /* Invert the colors to make black become white */
 }
 
 .footer-text {
@@ -323,10 +325,11 @@ textarea.form-control {
   opacity: 1;
   position: relative;
   z-index: 10;
-  background-color: transparent; /* Remove the background */
-  padding: 0; /* Remove padding */
-  border-radius: 0; /* Remove border radius */
-  box-shadow: none; /* Remove shadow */
+  background-color: transparent; /* Keep background transparent */
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  filter: invert(1); /* Invert the colors to make black become white */
 }
 
 @keyframes slideInFromTop {
