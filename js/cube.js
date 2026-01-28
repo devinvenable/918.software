@@ -318,8 +318,8 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   gl.clearDepth(1.0); // Clear everything
   gl.enable(gl.DEPTH_TEST); // Enable depth testing
   gl.depthFunc(gl.LEQUAL); // Near things obscure far things
-  gl.enable(gl.BLEND); // Enable blending for translucency
-  gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+  // gl.enable(gl.BLEND); // Enable blending for translucency
+  // gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
   // Clear the canvas before we start drawing on it.
 
@@ -439,7 +439,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   gl.uniform1i(programInfo.uniformLocations.uSampler, 0);
 
   // Set translucency (0.0 = fully transparent, 1.0 = fully opaque)
-  gl.uniform1f(programInfo.uniformLocations.uAlpha, 0.5);
+  gl.uniform1f(programInfo.uniformLocations.uAlpha, 1.0);
 
   {
     const vertexCount = 36;
