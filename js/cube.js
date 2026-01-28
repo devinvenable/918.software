@@ -79,8 +79,8 @@ function main() {
   // objects we'll be drawing.
   const buffers = initBuffers(gl);
 
-  console.log("Loading texture from:", "images/918-album.png");
-  const texture = loadTexture(gl, "images/918-album.png");
+  console.log("Loading texture from:", "images/918Software_Logo_solid.png");
+  const texture = loadTexture(gl, "images/918Software_Logo_solid.png");
 
   var then = 0;
 
@@ -439,7 +439,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   gl.uniform1i(programInfo.uniformLocations.uSampler, 0);
 
   // Set translucency (0.0 = fully transparent, 1.0 = fully opaque)
-  gl.uniform1f(programInfo.uniformLocations.uAlpha, 0.85);
+  gl.uniform1f(programInfo.uniformLocations.uAlpha, 0.5);
 
   {
     const vertexCount = 36;
