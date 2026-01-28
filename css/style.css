@@ -459,8 +459,8 @@ a {
 
 .home-cta-btn {
   display: inline-block;
-  background-color: white;
-  color: black;
+  background-color: #E67E22;
+  color: white;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
@@ -473,9 +473,10 @@ a {
 }
 
 .home-cta-btn:hover {
-  background-color: #f0f0f0;
+  background-color: #F39C12;
+  color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(230, 126, 34, 0.4);
 }
 
 @media (max-width: 768px) {
@@ -595,6 +596,43 @@ video {
 
 .movecube {
   animation: scalecube 79s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Headshot */
+.headshot {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  border: 2px solid #E67E22;
+  box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+}
+
+@media (max-width: 768px) {
+  .headshot {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Skip Animation Link */
+.skip-link {
+  display: block;
+  color: #E67E22;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  text-align: center;
+}
+
+.skip-link:hover {
+  color: #F39C12;
+  text-decoration: underline;
 }
 
 /* Global Overrides */

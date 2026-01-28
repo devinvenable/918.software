@@ -32,19 +32,26 @@ class TypingEffect {
 
 class SequentialTyping {
     constructor(elements, speed = 50, delayBetweenTexts = 500) {
-        this.typingEffects = Array.from(elements).map(el => 
+        this.typingEffects = Array.from(elements).map(el =>
             new TypingEffect(el, el.dataset.text, speed)
         );
         this.currentIndex = 0;
         this.delayBetweenTexts = delayBetweenTexts;
+        this.skipped = false;
     }
 
     async startTyping() {
         for (const effect of this.typingEffects) {
+            if (this.skipped) return;
             await effect.type();
+            if (this.skipped) return;
             await new Promise(resolve => setTimeout(resolve, this.delayBetweenTexts));
         }
-        
+
+        this.showCTA();
+    }
+
+    showCTA() {
         // After all typing is complete, show the CTA section
         const ctaSection = document.querySelector('.cta-section');
         if (ctaSection) {
@@ -54,17 +61,54 @@ class SequentialTyping {
                 ctaSection.style.opacity = '1';
             }, 300);
         }
+
+        // Hide skip link
+        const skipLink = document.getElementById('skip-animation');
+        if (skipLink) {
+            skipLink.style.display = 'none';
+        }
+    }
+
+    skip() {
+        this.skipped = true;
+
+        // Immediately show all text
+        for (const effect of this.typingEffects) {
+            effect.element.textContent = effect.text;
+            effect.element.classList.remove('typing');
+            effect.element.classList.add('typing-complete');
+            effect.isComplete = true;
+        }
+
+        this.showCTA();
+    }
+}
+
+// Global reference for skip functionality
+let globalTypingInstance = null;
+
+function skipTypingAnimation() {
+    if (globalTypingInstance) {
+        globalTypingInstance.skip();
     }
 }
 
 // Initialize typing effect immediately when page loads
 document.addEventListener('DOMContentLoaded', () => {
     const typingElements = document.querySelectorAll('.typing-text');
-    // Slower typing (40ms per char) and longer pause between sentences (1000ms)
-    const sequentialTyping = new SequentialTyping(typingElements, 40, 1000);
-    
-    // Start typing after a longer initial delay (2.5 seconds)
+    // Faster typing (28ms per char) and shorter pause between sentences (600ms)
+    globalTypingInstance = new SequentialTyping(typingElements, 28, 600);
+
+    // Start typing after a shorter initial delay (1.5 seconds)
     setTimeout(() => {
-        sequentialTyping.startTyping();
-    }, 2500);
+        globalTypingInstance.startTyping();
+    }, 1500);
+
+    // Show skip link after 2 seconds
+    setTimeout(() => {
+        const skipLink = document.getElementById('skip-animation');
+        if (skipLink) {
+            skipLink.style.opacity = '1';
+        }
+    }, 2000);
 });
