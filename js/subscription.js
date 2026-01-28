@@ -18,13 +18,18 @@ document.addEventListener('DOMContentLoaded', function() {
           // Disable the form elements during submission
           emailInput.disabled = true;
           submitButton.disabled = true;
-          
+
+          // Check honeypot field (should be empty for real users)
+          const honeypotInput = form.querySelector('input[name="website_url"]');
+          const honeypotValue = honeypotInput ? honeypotInput.value : '';
+
           // Prepare data for API
           const formData = {
             email: emailInput.value.trim(),
             form_type: 'newsletter',
             timestamp: new Date().toISOString(),
-            page: window.location.pathname
+            page: window.location.pathname,
+            website_url: honeypotValue
           };
           
           // Lambda API endpoint URL - replace with your actual API Gateway URL
