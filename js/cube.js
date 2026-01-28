@@ -36,15 +36,17 @@ function main() {
     }
   `;
 
-  // Fragment shader program
+  // Fragment shader program (with translucency)
 
   const fsSource = `
     varying highp vec2 vTextureCoord;
 
     uniform sampler2D uSampler;
+    uniform highp float uAlpha;
 
     void main(void) {
-      gl_FragColor = texture2D(uSampler, vTextureCoord);
+      highp vec4 texColor = texture2D(uSampler, vTextureCoord);
+      gl_FragColor = vec4(texColor.rgb, texColor.a * uAlpha);
     }
   `;
 
@@ -69,6 +71,7 @@ function main() {
       ),
       modelViewMatrix: gl.getUniformLocation(shaderProgram, "uModelViewMatrix"),
       uSampler: gl.getUniformLocation(shaderProgram, "uSampler"),
+      uAlpha: gl.getUniformLocation(shaderProgram, "uAlpha"),
     },
   };
 
@@ -76,8 +79,8 @@ function main() {
   // objects we'll be drawing.
   const buffers = initBuffers(gl);
 
-  console.log("Loading texture from:", "images/918-album.png");
-  const texture = loadTexture(gl, "images/918-album.png");
+  console.log("Loading texture from:", "images/918Software_Logo.png");
+  const texture = loadTexture(gl, "images/918Software_Logo.png");
 
   var then = 0;
 
@@ -311,10 +314,12 @@ function isPowerOf2(value) {
 // Draw the scene.
 //
 function drawScene(gl, programInfo, buffers, texture, deltaTime) {
-  gl.clearColor(0.0, 0.0, 0.0, 1.0); // Clear to black, fully opaque
+  gl.clearColor(0.0, 0.0, 0.0, 0.0); // Clear to transparent
   gl.clearDepth(1.0); // Clear everything
   gl.enable(gl.DEPTH_TEST); // Enable depth testing
   gl.depthFunc(gl.LEQUAL); // Near things obscure far things
+  gl.enable(gl.BLEND); // Enable blending for translucency
+  gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
   // Clear the canvas before we start drawing on it.
 
@@ -432,6 +437,9 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
 
   // Tell the shader we bound the texture to texture unit 0
   gl.uniform1i(programInfo.uniformLocations.uSampler, 0);
+
+  // Set translucency (0.0 = fully transparent, 1.0 = fully opaque)
+  gl.uniform1f(programInfo.uniformLocations.uAlpha, 0.4);
 
   {
     const vertexCount = 36;
