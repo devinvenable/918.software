@@ -37,6 +37,17 @@
   animation-delay: 0.2s;
 }
 
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #E67E22;
+}
+
 .page-subtitle {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   font-size: 1.3rem;
@@ -46,6 +57,7 @@
   opacity: 0;
   animation: slideInFromTop 1s ease forwards;
   animation-delay: 0.4s;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .page-content {
@@ -92,7 +104,7 @@
   left: 0;
   width: 60px;
   height: 3px;
-  background-color: white;
+  background-color: #E67E22;
   transition: width 0.3s ease;
 }
 
