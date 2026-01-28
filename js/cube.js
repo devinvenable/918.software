@@ -439,7 +439,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   gl.uniform1i(programInfo.uniformLocations.uSampler, 0);
 
   // Set translucency (0.0 = fully transparent, 1.0 = fully opaque)
-  gl.uniform1f(programInfo.uniformLocations.uAlpha, 0.4);
+  gl.uniform1f(programInfo.uniformLocations.uAlpha, 0.85);
 
   {
     const vertexCount = 36;
