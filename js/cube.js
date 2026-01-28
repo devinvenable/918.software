@@ -79,8 +79,8 @@ function main() {
   // objects we'll be drawing.
   const buffers = initBuffers(gl);
 
-  console.log("Loading texture from:", "images/918Software_Logo.png");
-  const texture = loadTexture(gl, "images/918Software_Logo.png");
+  console.log("Loading texture from:", "images/918-album.png");
+  const texture = loadTexture(gl, "images/918-album.png");
 
   var then = 0;
 
