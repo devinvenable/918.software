@@ -1,0 +1,15 @@
+{
+  "agents": {
+    "pm-918-static-1": {
+      "type": "claude-dev",
+      "role": "pm",
+      "tmux_session": "918-static-pm",
+      "worktree": "",
+      "started": "2026-01-31T09:06:15-06:00",
+      "status": "running",
+      "slot": 0,
+      "task_id": ""
+    }
+  },
+  "next_id": 1
+}
