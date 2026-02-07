@@ -1,0 +1,16 @@
+[
+  {
+    "title": "A Day in the Life of an Agentic Developer",
+    "summary": "What does a typical day look like when you work alongside AI? From morning sketches to video editing, here's an honest look at how I use AI tools to multiply my output\u2014without burning out.",
+    "featured_image": "https://918.software/images/holding_sketch.jpg",
+    "slug": "feb-2026-ai-workflow",
+    "date": "2026-02-01"
+  },
+  {
+    "title": "What Happens When AI Replaces You",
+    "summary": "I got laid off\u2014and replaced by someone using AI. Here's what I learned about the future of software development, and what I'm building next.",
+    "featured_image": "https://918.software/images/layoffs.png",
+    "slug": "first-newsletter",
+    "date": "2025-01-15"
+  }
+]
