@@ -7,10 +7,17 @@
     "date": "2026-02-01"
   },
   {
-    "title": "What Happens When AI Replaces You",
-    "summary": "I got laid off\u2014and replaced by someone using AI. Here's what I learned about the future of software development, and what I'm building next.",
-    "featured_image": "https://918.software/images/layoffs.png",
-    "slug": "first-newsletter",
-    "date": "2025-01-15"
+    "title": "Solving Business Process Messes: From Chaos to Clarity",
+    "summary": "This newsletter explores common software implementation pitfalls and offers a solution for achieving data clarity and streamlined processes.",
+    "featured_image": "https://918.software/images/dank-armada.png",
+    "slug": "solving-business-process-messes",
+    "date": "2026-01-01"
+  },
+  {
+    "title": "What's Your AI Sampling Temperature?",
+    "summary": "Discover how AI sampling temperature impacts creativity and reliability in language models. Learn about low vs high temperatures and their effects on AI output.",
+    "featured_image": "https://918.software/images/temperature_vs_creativity.png",
+    "slug": "what-is-your-ai-sampling-temperature",
+    "date": "2025-04-22"
   }
 ]
