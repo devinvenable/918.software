@@ -193,6 +193,15 @@
   font-style: italic;
 }
 
+/* Fix for newsletter inline styles with light backgrounds */
+.blog-post-content div[style*="background-color"] {
+  color: #1a1a1a;
+}
+
+.blog-post-content div[style*="background-color"] strong {
+  color: #0a1f3d;
+}
+
 /* Image and video containers from newsletter */
 .blog-post-content .image-container {
   margin: 2rem 0;
