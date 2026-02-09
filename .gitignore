@@ -49,3 +49,4 @@ yarn-error.log*
 # Dependency directories
 jspm_packages/
 bower_components/
+.agent-tasks.db
