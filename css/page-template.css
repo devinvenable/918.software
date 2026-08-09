@@ -2,7 +2,7 @@
 
 .page-container {
   min-height: 100vh;
-  background-color: black;
+  background-color: #07080a;
   color: white;
   padding-top: 5rem;
   overflow-x: hidden;
@@ -11,6 +11,42 @@
   flex-direction: column;
   width: 100%;
   box-sizing: border-box;
+}
+
+/* Direction B restraint: faint engineering blueprint grid + warm top glow,
+   layered behind all content so nothing shifts. */
+.page-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 52px 52px;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 60%);
+  mask-image: linear-gradient(180deg, #000 0%, transparent 60%);
+}
+.page-container::after {
+  content: "";
+  position: absolute;
+  top: -12vmax;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vmax;
+  height: 44vmax;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(230, 126, 34, 0.12), transparent 65%);
+  filter: blur(30px);
+}
+/* keep real content above the decorative layers */
+.page-header,
+.page-content,
+.footer {
+  position: relative;
+  z-index: 1;
 }
 
 .page-header {
@@ -45,7 +81,8 @@
   transform: translateX(-50%);
   width: 80px;
   height: 3px;
-  background-color: #E67E22;
+  background: linear-gradient(90deg, #E67E22, #F39C12);
+  box-shadow: 0 0 12px rgba(230, 126, 34, 0.5);
 }
 
 .page-subtitle {
@@ -104,7 +141,7 @@
   left: 0;
   width: 60px;
   height: 3px;
-  background-color: #E67E22;
+  background: linear-gradient(90deg, #E67E22, #F39C12);
   transition: width 0.3s ease;
 }
 
@@ -427,17 +464,16 @@ textarea.form-control {
 /* Update logo styling for better visibility */
 .page-top-logo {
   display: block;
-  width: 100px;
-  height: auto; /* Let height adjust automatically based on the image */
+  width: 84px;
+  height: 84px;
   margin: 1.5rem auto 0;
-  opacity: 1;
   position: relative;
   z-index: 10;
-  background-color: transparent; /* Keep background transparent */
-  padding: 0;
-  border-radius: 0;
-  box-shadow: none;
-  filter: invert(1); /* Invert the colors to make black become white */
+  /* Gradient-masked mark — matches the home hero, replaces the flat white box */
+  background: linear-gradient(135deg, #E67E22 0%, #F39C12 45%, #22d3ee 130%);
+  -webkit-mask: url(../images/918Software_Logo.svg) center / contain no-repeat;
+  mask: url(../images/918Software_Logo.svg) center / contain no-repeat;
+  filter: drop-shadow(0 0 10px rgba(230, 126, 34, 0.45));
 }
 
 @keyframes slideInFromTop {

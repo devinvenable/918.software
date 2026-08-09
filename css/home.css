@@ -1,0 +1,250 @@
+/* Home hero — "Signal / Kinetic Mono" (Direction B)
+   Scoped under .home-hero so nothing leaks to shared pages.
+   Evolves the current dark + Inter/Ubuntu-Mono + orange system. */
+
+.home-hero {
+  --bg: #07080a;
+  --ink: #f4f4f5;
+  --muted: rgba(244, 244, 245, 0.6);
+  --orange: #E67E22;
+  --orange-hi: #F39C12;
+  --line: rgba(255, 255, 255, 0.07);
+
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--bg);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ---- Background: engineering blueprint grid ---- */
+.home-hero__grid {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
+}
+
+/* ---- Sweeping signal beam (replaces the drifting cube's motion) ---- */
+.home-hero__beam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  z-index: -2;
+  background: linear-gradient(90deg, transparent, var(--orange), transparent);
+  filter: blur(1px);
+  opacity: 0.65;
+  animation: hero-sweep 8s linear infinite;
+}
+@keyframes hero-sweep {
+  0% { top: 6%; opacity: 0; }
+  12% { opacity: 0.65; }
+  88% { opacity: 0.65; }
+  100% { top: 94%; opacity: 0; }
+}
+
+/* ---- Warm corner glow ---- */
+.home-hero__glow {
+  position: absolute;
+  z-index: -3;
+  width: 62vmax;
+  height: 62vmax;
+  left: -18vmax;
+  bottom: -26vmax;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(230, 126, 34, 0.20), transparent 60%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+/* ---- Content column (left-aligned, Direction B signature) ---- */
+.home-hero__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 6rem clamp(1.35rem, 6vw, 5rem) 3rem;
+  box-sizing: border-box;
+}
+
+/* ---- Brand row: gradient-masked logo mark + wordmark ---- */
+.hero-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 2.4rem;
+  opacity: 0;
+  animation: hero-fade 0.7s 0.15s ease forwards;
+}
+.hero-brand__mark {
+  width: 46px;
+  height: 46px;
+  flex: none;
+  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-hi) 45%, #22d3ee 130%);
+  -webkit-mask: url(../images/918Software_Logo.svg) center / contain no-repeat;
+  mask: url(../images/918Software_Logo.svg) center / contain no-repeat;
+  filter: drop-shadow(0 0 10px rgba(230, 126, 34, 0.45));
+}
+.hero-brand__word {
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 1.05rem;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+}
+.hero-brand__word b { color: var(--ink); font-weight: 700; }
+
+/* ---- Headshot (kept — expertise-forward brand) ---- */
+.hero-headshot {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(230, 126, 34, 0.55);
+  box-shadow: 0 0 0 4px rgba(230, 126, 34, 0.08), 0 6px 20px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: hero-fade 0.7s 0.3s ease forwards;
+}
+
+/* ---- Terminal typed lines ---- */
+.hero-terminal {
+  opacity: 0;
+  animation: hero-fade 0.7s 0.45s ease forwards;
+}
+.home-hero .typing-text {
+  font-family: "Ubuntu Mono", monospace;
+  font-size: clamp(1.05rem, 2.3vw, 1.4rem);
+  line-height: 1.65;
+  color: var(--ink);
+  text-align: left;
+  max-width: 46ch;
+  margin: 0 0 0.9rem;
+  padding-left: 1.4rem;
+  position: relative;
+  width: auto;
+  z-index: auto;
+  animation: none;
+}
+.home-hero .typing-text:nth-of-type(n + 2) { color: var(--muted); }
+.home-hero .typing-text::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--orange);
+  font-weight: 700;
+}
+/* keep the existing blink cursor from style.css, just recolor */
+.home-hero .typing-text::after { color: var(--orange); right: auto; margin-left: 2px; position: static; }
+.home-hero .typing-text.typing-complete::after { display: none; }
+
+/* ---- Skip link ---- */
+.home-hero .skip-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  margin-left: 1.4rem;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.home-hero .skip-link:hover { color: var(--orange); }
+
+/* ---- CTA section ---- */
+.home-hero .cta-section {
+  margin-top: 2.6rem;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.home-hero .cta-heading {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(1.2rem, 2.6vw, 1.55rem);
+  font-weight: 600;
+  color: var(--ink);
+  text-align: left;
+  margin-bottom: 1.35rem;
+  position: relative;
+  display: inline-block;
+}
+.home-hero .cta-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--orange), var(--orange-hi));
+}
+.home-hero .cta-section.cta-visible .cta-heading::after {
+  animation: hero-draw 0.9s 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.home-hero .cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: flex-start;
+}
+.home-hero .home-cta-btn {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  min-width: 0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  /* ghost by default */
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.home-hero .home-cta-btn:hover {
+  transform: translateY(-3px);
+  border-color: var(--orange);
+  background: rgba(230, 126, 34, 0.08);
+  box-shadow: 0 8px 24px rgba(230, 126, 34, 0.18);
+}
+.home-hero .home-cta-btn.primary {
+  color: #170d00;
+  background: linear-gradient(120deg, var(--orange), var(--orange-hi));
+  border-color: transparent;
+  box-shadow: 0 6px 22px rgba(230, 126, 34, 0.32);
+}
+.home-hero .home-cta-btn.primary:hover {
+  box-shadow: 0 10px 30px rgba(230, 126, 34, 0.5);
+}
+
+@keyframes hero-fade { to { opacity: 1; } }
+@keyframes hero-draw { to { width: 100%; } }
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  .home-hero__inner { padding: 5rem 1.35rem 2.5rem; }
+  .home-hero__grid { background-size: 36px 36px; }
+  .hero-brand { margin-bottom: 1.8rem; }
+  .hero-brand__mark { width: 40px; height: 40px; }
+  .home-hero .cta-buttons { flex-direction: column; align-items: stretch; }
+  .home-hero .home-cta-btn { text-align: center; }
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .home-hero__beam { animation: none; opacity: 0.4; top: 50%; }
+  .home-hero .hero-brand,
+  .home-hero .hero-headshot,
+  .home-hero .hero-terminal { opacity: 1; animation: none; }
+  .home-hero .cta-section.cta-visible .cta-heading::after { width: 100%; animation: none; }
+}
