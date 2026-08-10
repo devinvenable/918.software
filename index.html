@@ -14,6 +14,7 @@
     />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/navigation.css" rel="stylesheet" type="text/css" />
+    <link href="css/home.css" rel="stylesheet" type="text/css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Ubuntu+Mono&display=swap"
       rel="stylesheet"
@@ -63,71 +64,51 @@
     
     <div class="overlay"></div>
     
-    <div class="cube-container">
-      <div class="move-wrapper">
-        <canvas
-          id="glcanvas"
-          class="movecube"
-          width="640"
-          height="480"
-        ></canvas>
-      </div>
-    </div>
+    <!-- Hero: "Signal / Kinetic Mono" — CSS-first, replaces the WebGL cube -->
+    <main class="home-hero">
+      <div class="home-hero__grid" aria-hidden="true"></div>
+      <div class="home-hero__beam" aria-hidden="true"></div>
+      <div class="home-hero__glow" aria-hidden="true"></div>
 
-    <div class="container noevolve">
-      <div class="left-fill evolve"></div>
-      <div class="div-918"></div>
-
-      <div class="in_container">
-        <div class="div-container">
-          <div class="fill1"></div>
+      <div class="home-hero__inner">
+        <div class="hero-brand">
+          <div class="hero-brand__mark" role="img" aria-label="918.software logo"></div>
+          <span class="hero-brand__word"><b>918</b>.software</span>
         </div>
-        <div class="text-container">
-          <div class="about_us">
-            <img src="images/devin-headshot.jpg" alt="Devin Venable" class="headshot" />
-            <div
-              class="typing-text"
-              data-text="Hello, I'm Devin Venable. I fix the operational messes that slow teams down."
-            ></div>
-            <div
-              class="typing-text"
-              data-text="Twenty years of software engineering, I find what's broken and build the fix that holds up."
-            ></div>
-            <div
-              class="typing-text"
-              data-text="Modern tools, including AI, when they get you there faster. You get the outcome."
-            ></div>
 
-            <!-- Skip animation link -->
-            <a href="#" id="skip-animation" class="skip-link" onclick="skipTypingAnimation(); return false;">Skip →</a>
+        <img src="images/devin-headshot.jpg" alt="Devin Venable" class="hero-headshot" />
 
-            <!-- CTA section that will appear after animation -->
-            <div class="cta-section" style="display: none;">
-              <h3 class="cta-heading">What's slowing your team down?</h3>
-              <div class="cta-buttons">
-                <a href="workflow-automation.html" class="home-cta-btn">Workflow Problems</a>
-                <a href="about.html" class="home-cta-btn">How I Work</a>
-                <a href="contact.html" class="home-cta-btn">Let's Talk</a>
-              </div>
-            </div>
+        <div class="hero-terminal">
+          <div
+            class="typing-text"
+            data-text="Hello, I'm Devin Venable. I fix the operational messes that slow teams down."
+          ></div>
+          <div
+            class="typing-text"
+            data-text="Twenty years of software engineering, I find what's broken and build the fix that holds up."
+          ></div>
+          <div
+            class="typing-text"
+            data-text="Modern tools, including AI, when they get you there faster. You get the outcome."
+          ></div>
+
+          <!-- Skip animation link -->
+          <a href="#" id="skip-animation" class="skip-link" onclick="skipTypingAnimation(); return false;">Skip →</a>
+        </div>
+
+        <!-- CTA section that will appear after animation -->
+        <div class="cta-section" style="display: none;">
+          <h3 class="cta-heading">What's slowing your team down?</h3>
+          <div class="cta-buttons">
+            <a href="workflow-automation.html" class="home-cta-btn primary">Workflow Problems</a>
+            <a href="about.html" class="home-cta-btn">How I Work</a>
+            <a href="contact.html" class="home-cta-btn">Let's Talk</a>
           </div>
         </div>
       </div>
-    </div>
+    </main>
 
-    <script
-      src="https://code.jquery.com/jquery-2.2.0.min.js?v=1"
-      integrity="sha256-ihAoc6M/JPfrIiIeayPE9xjin4UWjsx2mjW/rtmxLM4="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js?v=1"
-      integrity="sha512-zhHQR0/H5SEBL3Wn6yYSaTTZej12z0hVZKOv3TwCUXT1z5qeqGcXJLLrbERYRScEDDpYIJhPC1fk31gqR783iQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="js/cube.js?v=1" type="text/javascript"></script>
-    <script src="js/typing-effect.js?v=1" type="text/javascript"></script>
+    <script src="js/typing-effect.js?v=2" type="text/javascript"></script>
     <script src="js/navigation.js?v=4" type="text/javascript"></script>
   </body>
 </html>

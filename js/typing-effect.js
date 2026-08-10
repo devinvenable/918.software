@@ -5,14 +5,17 @@ class TypingEffect {
         this.speed = speed;
         this.currentChar = 0;
         this.isComplete = false;
+        this.aborted = false;
     }
 
     type() {
         return new Promise((resolve) => {
             // Add typing class to start cursor animation
             this.element.classList.add('typing');
-            
+
             const typeNextChar = () => {
+                // If skipped mid-line, stop overwriting the (already-filled) text
+                if (this.aborted) { resolve(); return; }
                 if (this.currentChar < this.text.length) {
                     this.element.textContent = this.text.slice(0, this.currentChar + 1);
                     this.currentChar++;
@@ -59,6 +62,8 @@ class SequentialTyping {
             // Add a small delay before showing to make the transition smoother
             setTimeout(() => {
                 ctaSection.style.opacity = '1';
+                // Trigger the kinetic underline-draw only once the CTA is visible
+                ctaSection.classList.add('cta-visible');
             }, 300);
         }
 
@@ -74,6 +79,7 @@ class SequentialTyping {
 
         // Immediately show all text
         for (const effect of this.typingEffects) {
+            effect.aborted = true;
             effect.element.textContent = effect.text;
             effect.element.classList.remove('typing');
             effect.element.classList.add('typing-complete');
